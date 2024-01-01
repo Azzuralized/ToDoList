@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Todo {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  status   Boolean
+  text     String
+  dateTime String
+  isEdit   Boolean
+}
+
+// id: id,
+// status: false,
+// text: event.target.elements[0].value,
+// datetime: event.target.elements[1].value,
+// isEdit: false
